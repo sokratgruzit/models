@@ -24,11 +24,12 @@ const account_auth = new mongoose.Schema(
     otp_base32: String,
     otp_auth_url: String,
     remember_token: String,
+    password_reset_code: String,
     keys: String,
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 account_auth.pre("save", async function (next) {
