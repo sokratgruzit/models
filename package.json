@@ -1,0 +1,13 @@
+{
+  "name": "@cubitrix/models",
+  "version": "0.0.5",
+  "description": "module for managing accounts data",
+  "main": "models.js",
+  "author": "jinx",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "mongoose": "^6.8.1",
+    "mongoose-aggregate-paginate-v2": "^1.0.6"
+  }
+}
