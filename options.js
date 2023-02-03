@@ -17,4 +17,4 @@ const options = new mongoose.Schema(
   }
 );
 options.index({ key: -1 }, { unique: true });
-module.exports = mongoose.model("options", options);
+module.exports = mongoose.models.options || mongoose.model("options", options);
