@@ -9,6 +9,10 @@ const accounts = new mongoose.Schema(
     account_category: String,
     account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
     account_owner: String,
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
