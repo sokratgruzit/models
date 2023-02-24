@@ -20,17 +20,23 @@ const role = require("./admin/role");
 const menu = require("./admin/menu");
 const user = require("./admin/user");
 
+// referral models
+const referral_links = require("./referral/referral_links");
+const referral_uni_users = require("./referral/referral_uni_users");
+
 module.exports = {
-  accounts: accounts,
-  account_auth: account_auth,
-  account_meta: account_meta,
-  account_types: account_types,
-  verified_emails: verified_emails,
-  extentions_config: extentions_config,
-  transaction_types: transaction_types,
-  transactions: transactions,
-  options: options,
-  role: role,
-  menu: menu,
-  user: user,
+  accounts,
+  account_auth,
+  account_meta,
+  account_types,
+  verified_emails,
+  extentions_config,
+  transaction_types,
+  transactions,
+  options,
+  role,
+  menu,
+  user,
+  referral_links,
+  referral_uni_users,
 };
