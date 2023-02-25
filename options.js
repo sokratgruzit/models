@@ -10,7 +10,7 @@ const options = new mongoose.Schema(
       dropDups: true,
     },
     value: String,
-    onject_value: Object,
+    object_value: Object,
   },
   {
     timestamps: true,
