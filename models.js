@@ -2,6 +2,7 @@
 const account_auth = require("./accounts/account_auth");
 const account_meta = require("./accounts/account_meta");
 const account_types = require("./accounts/account_types");
+const accounts_keys = require("./accounts/accounts_keys");
 const accounts = require("./accounts/accounts");
 const verified_emails = require("./accounts/verified_emails");
 
@@ -23,12 +24,14 @@ const user = require("./admin/user");
 // referral models
 const referral_links = require("./referral/referral_links");
 const referral_uni_users = require("./referral/referral_uni_users");
+const referral_binary_users = require("./referral/referral_binary_users");
 
 module.exports = {
   accounts,
   account_auth,
   account_meta,
   account_types,
+  accounts_keys,
   verified_emails,
   extentions_config,
   transaction_types,
@@ -39,4 +42,5 @@ module.exports = {
   user,
   referral_links,
   referral_uni_users,
+  referral_binary_users,
 };
