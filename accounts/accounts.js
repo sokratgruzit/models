@@ -4,7 +4,11 @@ const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const accounts = new mongoose.Schema(
   {
-    address: String,
+    address: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     balance: Number,
     account_category: String,
     account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
@@ -16,8 +20,7 @@ const accounts = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
