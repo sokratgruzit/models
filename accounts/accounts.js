@@ -14,7 +14,6 @@ const accounts = new mongoose.Schema(
     account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
     account_owner: {
       type: String,
-      required: true,
       unique: true,
     },
     active: {
