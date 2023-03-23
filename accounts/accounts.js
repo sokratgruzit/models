@@ -19,6 +19,7 @@ const accounts = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    staked: [],
   },
   {
     timestamps: true,
