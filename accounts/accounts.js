@@ -25,5 +25,36 @@ const accounts = new mongoose.Schema(
     timestamps: true,
   },
 );
+
+if (accounts.path("account_category").enumValues.includes("system")) {
+  accounts.add({
+    extensions: {
+      trade: {
+        type: Boolean,
+        default: false,
+      },
+      loan: {
+        type: Boolean,
+        default: false,
+      },
+      notify: {
+        type: Boolean,
+        default: false,
+      },
+      staking: {
+        type: Boolean,
+        default: false,
+      },
+      referral: {
+        type: Boolean,
+        default: false,
+      },
+      connect: {
+        type: Boolean,
+        default: process.env.REACT_APP_CONNECT === "true",
+      },
+    },
+  });
+}
 accounts.plugin(aggregatePaginate);
 module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
