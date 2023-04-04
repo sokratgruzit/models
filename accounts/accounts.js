@@ -85,5 +85,5 @@ const externalTypeEvent = Event.discriminator(
   }),
 );
 
-accounts.plugin(aggregatePaginate);
+Event.plugin(aggregatePaginate);
 module.exports = mongoose.models.accounts || mongoose.model("accounts", Event);
