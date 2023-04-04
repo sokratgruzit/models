@@ -2,7 +2,31 @@ const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
-const accounts = new mongoose.Schema(
+// const accounts = new mongoose.Schema(
+//   {
+//     address: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     balance: Number,
+//     account_category: String,
+//     account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
+//     account_owner: {
+//       type: String,
+//     },
+//     active: {
+//       type: Boolean,
+//       default: false,
+//     },
+//     staked: [],
+//   },
+//   {
+//     timestamps: true,
+//   },
+// );
+
+const eventSchema = new mongoose.Schema(
   {
     address: {
       type: String,
@@ -23,11 +47,15 @@ const accounts = new mongoose.Schema(
   },
   {
     timestamps: true,
+    discriminatorKey: "kind",
   },
 );
 
-if (accounts.path("account_category").enumValues.includes("system")) {
-  accounts.add({
+const Event = mongoose.model("account_category", eventSchema);
+
+const externalTypeEvent = Event.discriminator(
+  "external",
+  new Schema({
     extensions: {
       trade: {
         type: Boolean,
@@ -54,7 +82,8 @@ if (accounts.path("account_category").enumValues.includes("system")) {
         default: process.env.REACT_APP_CONNECT === "true",
       },
     },
-  });
-}
+  }),
+);
+
 accounts.plugin(aggregatePaginate);
-module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", Event);
