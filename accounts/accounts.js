@@ -47,11 +47,11 @@ const eventSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    discriminatorKey: "kind",
+    discriminatorKey: "account_category",
   },
 );
 
-const Event = mongoose.model("account_category", eventSchema);
+const Event = mongoose.model("Event", eventSchema);
 
 const externalTypeEvent = Event.discriminator(
   "external",
