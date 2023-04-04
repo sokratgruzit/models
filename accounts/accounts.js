@@ -51,8 +51,6 @@ const eventSchema = new mongoose.Schema(
   },
 );
 
-eventSchema.plugin(aggregatePaginate);
-
 const Event = mongoose.model("Event", eventSchema);
 
 const externalTypeEvent = Event.discriminator(
