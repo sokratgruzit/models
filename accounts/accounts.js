@@ -27,22 +27,15 @@ const accounts = new mongoose.Schema(
 );
 
 accounts.pre("save", function (next) {
-  console.log("pre save middleware called");
-  console.log("account_category value:", this.account_category);
-
   if (this.account_category === "external") {
-    console.log("adding extensions object");
-    this.extensions = {
+    this.set("extensions", {
       trade: false,
       loan: false,
       notify: false,
       staking: false,
       referral: false,
-    };
-    this.balance = 9999;
+    });
   }
-
-  console.log("extensions value:", this.extensions);
 
   next();
 });
