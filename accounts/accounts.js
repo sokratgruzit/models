@@ -20,6 +20,7 @@ const accounts = new mongoose.Schema(
       default: false,
     },
     staked: [],
+    extensions: {},
   },
   {
     timestamps: true,
@@ -28,13 +29,13 @@ const accounts = new mongoose.Schema(
 
 accounts.pre("save", function (next) {
   if (this.account_category === "external") {
-    this.set("extensions", {
+    this.extensions = {
       trade: false,
       loan: false,
       notify: false,
       staking: false,
       referral: false,
-    });
+    };
   }
 
   next();
