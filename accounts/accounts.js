@@ -30,11 +30,12 @@ const accounts = new mongoose.Schema(
 accounts.pre("save", function (next) {
   if (this.account_category === "external") {
     this.extensions = {
-      trade: false,
-      loan: false,
-      notify: false,
-      staking: false,
-      referral: false,
+      trade: "false",
+      loan: "false",
+      notify: "false",
+      staking: "false",
+      referral: "false",
+      connect: "false",
     };
   }
 
