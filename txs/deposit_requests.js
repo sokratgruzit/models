@@ -7,7 +7,7 @@ const deposit_requests = new mongoose.Schema(
     amountTransferedFrom: String,
     selectedMethod: String,
     receivePaymentAddress: String,
-    status: { String, default: "pending" },
+    status: { type: String, default: "pending" },
     tx_fee: Number,
   },
   {
