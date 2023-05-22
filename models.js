@@ -5,6 +5,7 @@ const account_types = require("./accounts/account_types");
 const accounts_keys = require("./accounts/accounts_keys");
 const accounts = require("./accounts/accounts");
 const verified_emails = require("./accounts/verified_emails");
+const deposit_requests = require("./txs/deposit_requests");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
@@ -43,4 +44,5 @@ module.exports = {
   referral_links,
   referral_uni_users,
   referral_binary_users,
+  deposit_requests,
 };
