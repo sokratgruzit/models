@@ -3,6 +3,7 @@ const account_auth = require("./accounts/account_auth");
 const account_meta = require("./accounts/account_meta");
 const account_types = require("./accounts/account_types");
 const accounts_keys = require("./accounts/accounts_keys");
+const account_balances = require("./accounts/account_balances");
 const accounts = require("./accounts/accounts");
 const verified_emails = require("./accounts/verified_emails");
 const deposit_requests = require("./txs/deposit_requests");
@@ -31,6 +32,7 @@ module.exports = {
   accounts,
   account_auth,
   account_meta,
+  account_balances,
   account_types,
   accounts_keys,
   verified_emails,
