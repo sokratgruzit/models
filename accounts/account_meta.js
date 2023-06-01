@@ -12,7 +12,10 @@ const account_meta = new mongoose.Schema(
     name: String,
     email: String,
     status: String,
-    mobile: Number,
+    mobile: {
+      type: Object,
+      default: {},
+    },
     date_of_birth: Date,
     nationality: String,
     last_login: Date,
@@ -20,7 +23,7 @@ const account_meta = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 account_meta.index({ address: -1 }, { unique: true });
 module.exports =

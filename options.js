@@ -10,11 +10,11 @@ const options = new mongoose.Schema(
       dropDups: true,
     },
     value: String,
-    onject_value: Object,
+    object_value: Object,
   },
   {
     timestamps: true,
   }
 );
 options.index({ key: -1 }, { unique: true });
-module.exports = mongoose.model("options", options);
+module.exports = mongoose.models.options || mongoose.model("options", options);
