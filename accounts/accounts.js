@@ -28,7 +28,7 @@ const accounts = new mongoose.Schema(
 );
 
 accounts.pre("save", function (next) {
-  if (this.account_category === "external") {
+  if (this.account_category === "system") {
     this.extensions = {
       trade: "false",
       loan: "false",
