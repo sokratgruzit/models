@@ -31,10 +31,12 @@ const accounts = new mongoose.Schema(
     },
     staked: [],
     extensions: {},
+    registered: Boolean,
+    step: Number,
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 accounts.pre("save", function (next) {
@@ -53,5 +55,4 @@ accounts.pre("save", function (next) {
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
