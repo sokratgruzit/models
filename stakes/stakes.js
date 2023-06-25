@@ -5,7 +5,6 @@ const stakes = new mongoose.Schema(
     address: {
       type: String,
       required: true,
-      unique: true,
     },
     amount: Number,
     reward: Number,
