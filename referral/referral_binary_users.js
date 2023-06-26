@@ -4,10 +4,10 @@ const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const referral_binary_users = new mongoose.Schema(
   {
-    referral: String,
+    referral_address: String,
     lvl: Number,
-    side: 'left' | 'right',
-    accounts: []
+    side: "left" | "right",
+    user_address: String,
   },
   {
     timestamps: true,

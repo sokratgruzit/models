@@ -24,7 +24,6 @@ const menu = require("./admin/menu");
 const user = require("./admin/user");
 
 // referral models
-const referral_links = require("./referral/referral_links");
 const referral_uni_users = require("./referral/referral_uni_users");
 const referral_binary_users = require("./referral/referral_binary_users");
 
@@ -42,7 +41,6 @@ module.exports = {
   role,
   menu,
   user,
-  referral_links,
   referral_uni_users,
   referral_binary_users,
   deposit_requests,
