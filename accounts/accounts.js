@@ -31,14 +31,16 @@ const accounts = new mongoose.Schema(
     },
     staked: [],
     extensions: {},
+    registered: Boolean,
+    step: Number,
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 accounts.pre("save", function (next) {
-  if (this.account_category === "external") {
+  if (this.account_category === "system") {
     this.extensions = {
       trade: "false",
       loan: "false",
@@ -53,5 +55,4 @@ accounts.pre("save", function (next) {
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
