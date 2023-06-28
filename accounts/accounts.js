@@ -29,7 +29,6 @@ const accounts = new mongoose.Schema(
         platinium: 0,
       },
     },
-    staked: [],
     extensions: {},
     registered: Boolean,
     step: Number,
