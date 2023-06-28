@@ -6,7 +6,6 @@ const referral_binary_users = new mongoose.Schema(
   {
     referral_address: String,
     lvl: Number,
-    side: "left" | "right",
     user_address: String,
     position: Number,
   },
