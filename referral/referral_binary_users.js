@@ -4,10 +4,10 @@ const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const referral_binary_users = new mongoose.Schema(
   {
-    referral_id: { type: Schema.Types.ObjectId, ref: "referral_links" },
-    referral: String,
+    referral_address: String,
     lvl: Number,
-    user_id: { type: Schema.Types.ObjectId, ref: "account_meta" },
+    user_address: String,
+    position: Number,
   },
   {
     timestamps: true,
