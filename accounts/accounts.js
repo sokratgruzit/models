@@ -29,7 +29,6 @@ const accounts = new mongoose.Schema(
       },
     },
     extensions: {},
-    registered: Boolean,
     step: Number,
   },
   {
