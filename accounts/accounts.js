@@ -11,7 +11,6 @@ const accounts = new mongoose.Schema(
     },
     balance: Number,
     account_category: String,
-    account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
     account_owner: {
       type: String,
     },
