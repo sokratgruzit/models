@@ -30,6 +30,9 @@ const accounts = new mongoose.Schema(
     },
     extensions: {},
     step: Number,
+    stakedToday: Number,
+    stakedTotal: Number,
+    flush_out: Boolean,
   },
   {
     timestamps: true,
