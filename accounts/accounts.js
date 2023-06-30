@@ -11,7 +11,6 @@ const accounts = new mongoose.Schema(
     },
     balance: Number,
     account_category: String,
-    account_type_id: { type: Schema.Types.ObjectId, ref: "account_types" },
     account_owner: {
       type: String,
     },
@@ -29,7 +28,6 @@ const accounts = new mongoose.Schema(
         platinium: 0,
       },
     },
-    staked: [],
     extensions: {},
     registered: Boolean,
     step: Number,

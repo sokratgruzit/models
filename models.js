@@ -1,7 +1,6 @@
 // account models
 const account_auth = require("./accounts/account_auth");
 const account_meta = require("./accounts/account_meta");
-const account_types = require("./accounts/account_types");
 const accounts_keys = require("./accounts/accounts_keys");
 const accounts = require("./accounts/accounts");
 const verified_emails = require("./accounts/verified_emails");
@@ -31,7 +30,6 @@ module.exports = {
   accounts,
   account_auth,
   account_meta,
-  account_types,
   accounts_keys,
   verified_emails,
   extentions_config,
