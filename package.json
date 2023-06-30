@@ -1,6 +1,6 @@
 {
   "name": "@cubitrix/models",
-  "version": "0.0.62",
+  "version": "0.0.63",
   "description": "module for managing accounts data",
   "main": "models.js",
   "author": "jinx",
