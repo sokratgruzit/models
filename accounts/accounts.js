@@ -31,7 +31,7 @@ const accounts = new mongoose.Schema(
     extensions: {},
     step: Number,
     stakedToday: Number,
-    stakedTotal: Number,
+    stakedThisMonth: Number,
     flush_out: Boolean,
   },
   {
