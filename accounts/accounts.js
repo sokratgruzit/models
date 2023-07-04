@@ -41,7 +41,7 @@ const accounts = new mongoose.Schema(
 );
 
 accounts.pre("save", function (next) {
-  if (this.account_category === "system") {
+  if (this.account_category === "main") {
     this.extensions = {
       trade: "false",
       loan: "false",
