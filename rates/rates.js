@@ -22,11 +22,11 @@ const createInitialRates = async () => {
 
     if (!existingRates) {
       const initialRates = new Rates({
-        btc: {},
-        eth: {},
-        usdt: {},
-        gold: {},
-        platinum: {},
+        btc: { value: 0 },
+        eth: { value: 0 },
+        usdt: { value: 0 },
+        gold: { value: 0 },
+        platinum: { value: 0 },
       });
       await initialRates.save();
     }
