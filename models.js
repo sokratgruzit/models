@@ -6,6 +6,7 @@ const accounts = require("./accounts/accounts");
 const verified_emails = require("./accounts/verified_emails");
 const deposit_requests = require("./txs/deposit_requests");
 const stakes = require("./stakes/stakes");
+const rates = require("./rates/rates");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
@@ -43,4 +44,5 @@ module.exports = {
   referral_binary_users,
   deposit_requests,
   stakes,
+  rates,
 };
