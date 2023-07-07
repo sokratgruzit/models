@@ -25,7 +25,7 @@ const accounts = new mongoose.Schema(
         eth: 0,
         usdt: 0,
         gold: 0,
-        platinium: 0,
+        platinum: 0,
       },
     },
     extensions: {},
