@@ -18,16 +18,7 @@ const accounts = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    assets: {
-      type: Object,
-      default: {
-        btc: 0,
-        eth: 0,
-        usdt: 0,
-        gold: 0,
-        platinum: 0,
-      },
-    },
+    assets: {},
     extensions: {},
     step: Number,
     stakedToday: Number,
@@ -49,6 +40,13 @@ accounts.pre("save", function (next) {
       staking: "false",
       referral: "false",
       connect: "false",
+    };
+    this.assets = {
+      btc: 0,
+      eth: 0,
+      usdt: 0,
+      gold: 0,
+      platinum: 0,
     };
   }
 
