@@ -25,10 +25,11 @@ const accounts = new mongoose.Schema(
     stakedThisMonth: Number,
     stakedTotal: Number,
     flush_out: {},
+    tier: {},
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 accounts.pre("save", function (next) {
@@ -54,5 +55,4 @@ accounts.pre("save", function (next) {
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
