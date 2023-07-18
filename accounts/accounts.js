@@ -45,7 +45,7 @@ accounts.pre("save", function (next) {
     this.assets = {
       btc: 0,
       eth: 0,
-      usdt: 0,
+      usdc: 0,
       gold: 0,
       platinum: 0,
     };
