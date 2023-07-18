@@ -36,11 +36,17 @@ accounts.pre("save", function (next) {
   if (this.account_category === "main") {
     this.extensions = {
       trade: "false",
+      tradeAdmin: "true",
       loan: "false",
+      loanAdmin: "true",
       notify: "false",
+      notifyAdmin: "true",
       staking: "false",
+      stakingAdmin: "true",
       referral: "false",
+      referralAdmin: "true",
       connect: "false",
+      connectAdmin: "true",
     };
     this.assets = {
       btc: 0,
