@@ -15,7 +15,6 @@ const ratesSchema = new mongoose.Schema(
 
 const Rates = mongoose.models.rates || mongoose.model("rates", ratesSchema);
 
-// Create an initial document in the "rates" collection if it doesn't exist
 const createInitialRates = async () => {
   try {
     const existingRates = await Rates.findOne();
