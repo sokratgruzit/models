@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const treasurySchema = new mongoose.Schema(
+const treasuriesSchema = new mongoose.Schema(
   {
     incoming: { type: Object, default: {} },
     withdrawals: { type: Object, default: {} },
@@ -11,14 +11,15 @@ const treasurySchema = new mongoose.Schema(
   },
 );
 
-const Treasury = mongoose.models.treasury || mongoose.model("treasury", treasurySchema);
+const Treasuries =
+  mongoose.models.treasuries || mongoose.model("treasuries", treasuriesSchema);
 
-const createInitialTreasury = async () => {
+const createInitialTreasuries = async () => {
   try {
-    const existingTreasury = await Treasury.findOne();
+    const existingTreasuries = await Treasuries.findOne();
 
-    if (!existingTreasury) {
-      const initialTreasury = new Treasury({
+    if (!existingTreasuries) {
+      const initialTreasuries = new Treasuries({
         incoming: { ATR: 0, BTC: 0, ETH: 0, USDC: 0, GOLD: 0, PLATINUM: 0 },
         withdrawals: { ATR: 0, BTC: 0, ETH: 0, USDC: 0, GOLD: 0, PLATINUM: 0 },
         withdrawalsAllowed: {
@@ -30,12 +31,12 @@ const createInitialTreasury = async () => {
           PLATINUM: false,
         },
       });
-      await initialTreasury.save();
+      await initialTreasuries.save();
     }
   } catch (error) {
     console.error("Error creating or checking initial Treasury document:", error);
   }
 };
-createInitialTreasury();
+createInitialTreasuries();
 
-module.exports = Treasury;
+module.exports = Treasuries;

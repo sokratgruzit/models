@@ -7,7 +7,7 @@ const verified_emails = require("./accounts/verified_emails");
 const deposit_requests = require("./txs/deposit_requests");
 const stakes = require("./stakes/stakes");
 const rates = require("./rates/rates");
-const treasury = require("./treasury/treasury");
+const treasuries = require("./treasuries/treasuries");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
@@ -46,5 +46,5 @@ module.exports = {
   deposit_requests,
   stakes,
   rates,
-  treasury,
+  treasuries,
 };
