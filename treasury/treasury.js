@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const treasurySchema = new mongoose.Schema(
   {
-    Incoming: { type: Object, default: {} },
+    incoming: { type: Object, default: {} },
     withdrawals: { type: Object, default: {} },
     withdrawalsAllowed: { type: Object, default: {} },
   },
