@@ -4,7 +4,6 @@ const treasuriesSchema = new mongoose.Schema(
   {
     incoming: { type: Object, default: {} },
     withdrawals: { type: Object, default: {} },
-    withdrawalsAllowed: { type: Object, default: {} },
   },
   {
     timestamps: true,
@@ -22,14 +21,6 @@ const createInitialTreasuries = async () => {
       const initialTreasuries = new Treasuries({
         incoming: { ATR: 0, BTC: 0, ETH: 0, USDC: 0, GOLD: 0, PLATINUM: 0 },
         withdrawals: { ATR: 0, BTC: 0, ETH: 0, USDC: 0, GOLD: 0, PLATINUM: 0 },
-        withdrawalsAllowed: {
-          ATR: false,
-          BTC: false,
-          ETH: false,
-          USDC: false,
-          GOLD: false,
-          PLATINUM: false,
-        },
       });
       await initialTreasuries.save();
     }
