@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const margin_transactions = new mongoose.Schema(
   {
-    address,
+    address: String,
     colaterrol: number,
     leverage: nnumber,
     total_amount: number,
