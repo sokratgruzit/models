@@ -4,7 +4,7 @@ const margin_transactions = new mongoose.Schema(
   {
     address: String,
     colaterrol: Number,
-    leverage: nNumber,
+    leverage: Number,
     total_amount: Number,
     borrowed_x: Number,
     currency: String,
