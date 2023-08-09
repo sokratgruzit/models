@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const margin_transactions = new mongoose.Schema(
   {
     address: String,
-    colaterrol: number,
-    leverage: nnumber,
-    total_amount: number,
-    borrowed_x: number,
+    colaterrol: Number,
+    leverage: nNumber,
+    total_amount: Number,
+    borrowed_x: Number,
     currency: String,
-    currency_price: number,
+    currency_price: Number,
     returned: Boolean,
     margin_type: String,
   },
