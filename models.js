@@ -16,6 +16,7 @@ const extentions_config = require("./extentions/extentions_config");
 // tx models
 const transaction_types = require("./txs/transaction_types");
 const transactions = require("./txs/transactions");
+const margin_transactions = require("./txs/margin_transactions");
 
 // options
 const options = require("./options");
@@ -38,6 +39,7 @@ module.exports = {
   extentions_config,
   transaction_types,
   transactions,
+  margin_transactions,
   options,
   role,
   menu,
