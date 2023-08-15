@@ -8,6 +8,7 @@ const deposit_requests = require("./txs/deposit_requests");
 const stakes = require("./stakes/stakes");
 const rates = require("./rates/rates");
 const treasuries = require("./treasuries/treasuries");
+const currencyStakes = require("./currencyStakes/currencyStakes");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
