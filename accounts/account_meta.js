@@ -20,6 +20,9 @@ const account_meta = new mongoose.Schema(
     nationality: String,
     last_login: Date,
     avatar: String,
+    verified_at: Date,
+    verified: Boolean,
+    verification_code: String,
   },
   {
     timestamps: true,
