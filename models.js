@@ -3,11 +3,11 @@ const account_auth = require("./accounts/account_auth");
 const account_meta = require("./accounts/account_meta");
 const accounts_keys = require("./accounts/accounts_keys");
 const accounts = require("./accounts/accounts");
-const verified_emails = require("./accounts/verified_emails");
 const deposit_requests = require("./txs/deposit_requests");
 const stakes = require("./stakes/stakes");
 const rates = require("./rates/rates");
 const treasuries = require("./treasuries/treasuries");
+const currencyStakes = require("./currencyStakes/currencyStakes");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
@@ -34,7 +34,6 @@ module.exports = {
   account_auth,
   account_meta,
   accounts_keys,
-  verified_emails,
   extentions_config,
   transaction_types,
   transactions,
@@ -49,4 +48,5 @@ module.exports = {
   stakes,
   rates,
   treasuries,
+  currencyStakes,
 };

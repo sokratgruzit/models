@@ -41,11 +41,25 @@ account_auth.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-account_auth.pre("updateOne", function (next) {
-  let update = this.getUpdate();
+account_auth.pre("updateOne", async function (next) {
+  const update = this.getUpdate();
   if (!update.password) return next();
-  update.password = bcrypt.hashSync(update.password, 8);
-  this.update({}, update);
+
+  const salt = await bcrypt.genSalt(10);
+  update.password = await bcrypt.hash(update.password, salt);
+
+  this.updateOne({}, update);
+  next();
+});
+
+account_auth.pre("findOneAndUpdate", async function (next) {
+  const update = this.getUpdate();
+  if (!update.password) return next();
+
+  const salt = await bcrypt.genSalt(10);
+  update.password = await bcrypt.hash(update.password, salt);
+
+  this.updateOne({}, update);
   next();
 });
 
