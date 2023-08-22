@@ -27,8 +27,8 @@ const accounts = new mongoose.Schema(
     flush_out: {},
     tier: {},
     last_updated_referrals: {
-      uni_comission: ObjectId,
-      bv_comission: ObjectId,
+      uni_comission: { type: mongoose.Schema.Types.ObjectId },
+      bv_comission: { type: mongoose.Schema.Types.ObjectId },
     },
   },
   {
