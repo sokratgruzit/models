@@ -26,10 +26,14 @@ const accounts = new mongoose.Schema(
     stakedTotal: Number,
     flush_out: {},
     tier: {},
+    last_updated_referrals: {
+      uni_comission: ObjectId,
+      bv_comission: ObjectId,
+    },
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 accounts.pre("save", function (next) {
@@ -61,4 +65,5 @@ accounts.pre("save", function (next) {
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports =
+  mongoose.models.accounts || mongoose.model("accounts", accounts);
