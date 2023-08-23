@@ -10,8 +10,14 @@ const stakes = new mongoose.Schema(
     reward: Number,
     staketime: Number,
     unstaketime: Number,
-    bv_placed: Boolean,
-    uni_placed: Boolean,
+    bv_placed: {
+      type: Boolean,
+      default: false,
+    },
+    uni_placed: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
