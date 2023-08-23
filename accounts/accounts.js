@@ -26,10 +26,6 @@ const accounts = new mongoose.Schema(
     stakedTotal: Number,
     flush_out: {},
     tier: {},
-    last_updated_referrals: {
-      uni_comission: { type: mongoose.Schema.Types.ObjectId },
-      bv_comission: { type: mongoose.Schema.Types.ObjectId },
-    },
   },
   {
     timestamps: true,
