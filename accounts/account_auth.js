@@ -23,7 +23,7 @@ const account_auth = new mongoose.Schema(
     otp_hex: String,
     otp_base32: String,
     otp_auth_url: String,
-    remember_token: String,
+    access_token: String,
     password_reset_code: String,
     keys: String,
   },
