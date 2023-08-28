@@ -27,7 +27,7 @@ const accounts = new mongoose.Schema(
     stakedTotal: Number,
     flush_out: {},
     tier: {},
-    refresh_token: String,
+    refresh_token_sessions: [],
   },
   {
     timestamps: true,
@@ -57,19 +57,8 @@ accounts.pre("save", async function (next) {
       gold: 0,
       platinum: 0,
     };
-
-    if (!this.isModified || !this.refresh_token) {
-      next();
-    }
-
-    const salt = await bcrypt.genSalt(10);
-    this.refresh_token = await bcrypt.hash(this.refresh_token, salt);
   }
 });
-
-accounts.methods.match_refresh_token = async function (enteredToken) {
-  return await bcrypt.compare(enteredToken, this.refresh_token);
-};
 
 accounts.plugin(aggregatePaginate);
 module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
