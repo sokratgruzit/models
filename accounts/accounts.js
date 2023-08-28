@@ -26,13 +26,14 @@ const accounts = new mongoose.Schema(
     stakedTotal: Number,
     flush_out: {},
     tier: {},
+    refresh_token: String,
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-accounts.pre("save", function (next) {
+accounts.pre("save", async function (next) {
   if (this.account_category === "main") {
     this.extensions = {
       trade: "false",
@@ -55,11 +56,15 @@ accounts.pre("save", function (next) {
       gold: 0,
       platinum: 0,
     };
-  }
 
-  next();
+    if (!this.isModified || !this.refresh_token) {
+      next();
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    this.refresh_token = await bcrypt.hash(this.refresh_token, salt);
+  }
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
