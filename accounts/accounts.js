@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
+const bcrypt = require("bcrypt");
 
 const accounts = new mongoose.Schema(
   {
@@ -65,6 +66,10 @@ accounts.pre("save", async function (next) {
     this.refresh_token = await bcrypt.hash(this.refresh_token, salt);
   }
 });
+
+accounts.methods.match_refresh_token = async function (enteredToken) {
+  return await bcrypt.compare(enteredToken, this.refresh_token);
+};
 
 accounts.plugin(aggregatePaginate);
 module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
