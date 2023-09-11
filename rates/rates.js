@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const ratesSchema = new mongoose.Schema(
   {
+    atr: { type: Object, default: {} },
     btc: { type: Object, default: {} },
     eth: { type: Object, default: {} },
     usdc: { type: Object, default: {} },
@@ -21,6 +22,7 @@ const createInitialRates = async () => {
 
     if (!existingRates) {
       const initialRates = new Rates({
+        atr: { usd: 0 },
         btc: { usd: 0 },
         eth: { usd: 0 },
         usdc: { usd: 0 },
