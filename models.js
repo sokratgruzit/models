@@ -8,6 +8,7 @@ const stakes = require("./stakes/stakes");
 const rates = require("./rates/rates");
 const treasuries = require("./treasuries/treasuries");
 const currencyStakes = require("./currencyStakes/currencyStakes");
+const verify_txs = require("./txs/verify_txs");
 
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
@@ -49,4 +50,5 @@ module.exports = {
   rates,
   treasuries,
   currencyStakes,
+  verify_txs,
 };
