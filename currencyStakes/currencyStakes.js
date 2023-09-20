@@ -22,6 +22,10 @@ const currencyStakesSchema = new mongoose.Schema(
     expires: {
       type: Date,
     },
+    A1_price: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,
