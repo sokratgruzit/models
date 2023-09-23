@@ -15,6 +15,8 @@ const transactions = new mongoose.Schema(
     tx_currency: String,
     tx_options: {},
     exchange_id: String,
+    exchange_create_object: String,
+    exchange_get_object: String,
   },
   {
     timestamps: true,
