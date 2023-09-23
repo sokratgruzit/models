@@ -14,10 +14,11 @@ const transactions = new mongoose.Schema(
     tx_fee_currency: String,
     tx_currency: String,
     tx_options: {},
+    exchange_id: String,
   },
   {
     timestamps: true,
-  },
+  }
 );
 module.exports =
   mongoose.models.transactions || mongoose.model("transactions", transactions);
