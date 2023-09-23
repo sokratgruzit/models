@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const transactions = new mongoose.Schema(
+const verify_txs = new mongoose.Schema(
   {
     from: String,
     to: String,
@@ -8,16 +8,15 @@ const transactions = new mongoose.Schema(
     tx_type: String,
     tx_hash: String,
     domination: Number,
-    A1_price: Number,
     tx_status: String,
     tx_fee: Number,
     tx_fee_currency: String,
     tx_currency: String,
     tx_options: {},
+    code: String,
   },
   {
     timestamps: true,
   },
 );
-module.exports =
-  mongoose.models.transactions || mongoose.model("transactions", transactions);
+module.exports = mongoose.models.verify_txs || mongoose.model("verify_txs", verify_txs);

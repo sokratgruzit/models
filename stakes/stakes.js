@@ -14,6 +14,7 @@ const stakes = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    A1_price: Number,
     uni_placed: {
       type: Boolean,
       default: false,
@@ -21,7 +22,7 @@ const stakes = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.models.stakes || mongoose.model("stakes", stakes);
