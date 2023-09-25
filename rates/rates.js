@@ -6,6 +6,7 @@ const ratesSchema = new mongoose.Schema(
     btc: { type: Object, default: {} },
     eth: { type: Object, default: {} },
     usdc: { type: Object, default: {} },
+    bnb: { type: Object, default: {} },
     gold: { type: Object, default: {} },
     platinum: { type: Object, default: {} },
     stakingAPY: { type: Object, default: {} },
@@ -23,11 +24,12 @@ const createInitialRates = async () => {
 
     if (!existingRates) {
       const initialRates = new Rates({
-        atr: { usd: 0 },
+        atr: { usd: 2 },
         btc: { usd: 0 },
         eth: { usd: 0 },
         usdc: { usd: 0 },
         gold: { usd: 0 },
+        bnb: { usd: 0 },
         platinum: { usd: 0 },
         stakingAPY: {
           type: Object,
