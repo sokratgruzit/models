@@ -29,6 +29,7 @@ const accounts = new mongoose.Schema(
     tier: {},
     refresh_token_sessions: [],
     elite_member: Boolean,
+    ips: [],
   },
   {
     timestamps: true,
