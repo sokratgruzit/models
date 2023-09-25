@@ -29,7 +29,10 @@ const accounts = new mongoose.Schema(
     tier: {},
     refresh_token_sessions: [],
     elite_member: Boolean,
-    ips: [],
+    ips: {
+      type: [],
+      default: [],
+    },
   },
   {
     timestamps: true,
