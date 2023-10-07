@@ -28,7 +28,7 @@ const accounts = new mongoose.Schema(
     flush_out: {},
     tier: {},
     refresh_token_sessions: [],
-    elite_member: Boolean,
+    elite_member: String,
     ips: {
       type: [],
       default: [],
@@ -36,7 +36,7 @@ const accounts = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 accounts.pre("save", async function (next) {
@@ -66,5 +66,4 @@ accounts.pre("save", async function (next) {
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports =
-  mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
