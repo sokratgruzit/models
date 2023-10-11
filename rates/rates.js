@@ -10,6 +10,7 @@ const ratesSchema = new mongoose.Schema(
     gold: { type: Object, default: {} },
     platinum: { type: Object, default: {} },
     stakingAPY: { type: Object, default: {} },
+    onChainStakingApy: { type: Object, default: {} },
   },
   {
     timestamps: true,
@@ -38,6 +39,14 @@ const createInitialRates = async () => {
             90: 1,
             180: 1,
             360: 1,
+          },
+        },
+        onChainStakingApy: {
+          type: Object,
+          default: {
+            365: 1,
+            730: 1,
+            1095: 1,
           },
         },
       });
