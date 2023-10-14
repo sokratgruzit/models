@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const contractInfosSchema = new mongoose.Schema(
   {
-    atr: { type: Object, default: {} },
+    cates: { type: Array, default: [] },
   },
   {
     timestamps: true,
@@ -18,30 +18,7 @@ const createInitialInfo = async () => {
 
     if (!existingInfo) {
       const initialInfo = new ContractInfos({
-        atr: { usd: 2 },
-        btc: { usd: 0 },
-        eth: { usd: 0 },
-        usdc: { usd: 0 },
-        gold: { usd: 0 },
-        bnb: { usd: 0 },
-        platinum: { usd: 0 },
-        stakingAPY: {
-          type: Object,
-          default: {
-            30: 1,
-            90: 1,
-            180: 1,
-            360: 1,
-          },
-        },
-        onChainStakingApy: {
-          type: Object,
-          default: {
-            365: 1,
-            730: 1,
-            1095: 1,
-          },
-        },
+        cates: [],
       });
       await initialInfo.save();
     }
