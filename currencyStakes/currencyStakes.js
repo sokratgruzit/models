@@ -24,7 +24,6 @@ const currencyStakesSchema = new mongoose.Schema(
     },
     A1_price: {
       type: Number,
-      required: true,
     },
   },
   {
