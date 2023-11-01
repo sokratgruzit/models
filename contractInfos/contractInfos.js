@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const contractInfosSchema = new mongoose.Schema(
   {
-    apys: { type: Array, default: [] },
-    cates: { type: Array, default: [] }
+    apys: { type: Array, default: [] }
   },
   {
     timestamps: true,
@@ -20,7 +19,6 @@ const createInitialInfo = async () => {
     if (!existingInfo) {
       const initialInfo = new ContractInfos({
         apys: [],
-        cates: [],
       });
       await initialInfo.save();
     }
