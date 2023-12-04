@@ -20,9 +20,9 @@ const createInitialTreasuries = async () => {
 
     if (!existingTreasuries) {
       const initialTreasuries = new Treasuries({
-        incoming: { ATR: 0, BTC: 0, ETH: 0, TETHER: 0, GOLD: 0, PLATINUM: 0 },
-        pendingWithdrawals: { ATR: 0, BTC: 0, ETH: 0, TETHER: 0, GOLD: 0, PLATINUM: 0 },
-        withdrawals: { ATR: 0, BTC: 0, ETH: 0, TETHER: 0, GOLD: 0, PLATINUM: 0 },
+        incoming: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
+        pendingWithdrawals: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
+        withdrawals: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
       });
       await initialTreasuries.save();
     }
