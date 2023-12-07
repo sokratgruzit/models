@@ -33,12 +33,41 @@ const createInitialRates = async () => {
         gold: { usd: 0 },
         platinum: { usd: 0 },
         stakingAPY: {
-          type: Object,
-          default: {
+          bnb: {
             30: 1,
             90: 1,
             180: 1,
             360: 1,
+          },
+          btc: {
+            30: 1,
+            90: 1,
+            180: 1,
+            360: 1,
+          },
+          eth: {
+          30: 1,
+          90: 1,
+          180: 1,
+          360: 1,
+          },
+          usdt: {
+          30: 1,
+          90: 1,
+          180: 1,
+          360: 1,
+          },
+          gold: {
+          30: 1,
+          90: 1,
+          180: 1,
+          360: 1,
+          },
+          platinum: {
+          30: 1,
+          90: 1,
+          180: 1,
+          360: 1,
           },
         },
         onChainStakingApy: {
