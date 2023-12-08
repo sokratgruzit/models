@@ -14,6 +14,11 @@ const currencyStakesSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    expected_reward: {
+      type: Number,
+      // required: true,
+      min: 0,
+    },
     percentage: {
       type: Number,
       required: true,
@@ -28,7 +33,7 @@ const currencyStakesSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 module.exports =
