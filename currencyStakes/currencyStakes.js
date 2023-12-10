@@ -6,6 +6,11 @@ const currencyStakesSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      required: true,
+      default: "unpaid",
+    },
     amount: {
       type: Number,
       required: true,

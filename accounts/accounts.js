@@ -19,7 +19,14 @@ const accounts = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    assets: {},
+    assets: {
+      btc: { type: Number, default: 0 },
+      eth: { type: Number, default: 0 },
+      usdt: { type: Number, default: 0 },
+      bnb: { type: Number, default: 0 },
+      gold: { type: Number, default: 0 },
+      platinum: { type: Number, default: 0 },
+    },
     extensions: {},
     step: Number,
     stakedToday: Number,
@@ -36,7 +43,7 @@ const accounts = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 accounts.pre("save", async function (next) {
@@ -55,16 +62,9 @@ accounts.pre("save", async function (next) {
       connect: "false",
       connectAdmin: "true",
     };
-    this.assets = {
-      btc: 0,
-      eth: 0,
-      usdt: 0,
-      bnb: 0,
-      gold: 0,
-      platinum: 0,
-    };
   }
 });
 
 accounts.plugin(aggregatePaginate);
-module.exports = mongoose.models.accounts || mongoose.model("accounts", accounts);
+module.exports =
+  mongoose.models.accounts || mongoose.model("accounts", accounts);
