@@ -27,6 +27,12 @@ const accounts = new mongoose.Schema(
       gold: { type: Number, default: 0 },
       platinum: { type: Number, default: 0 },
     },
+    currencyStakes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "currencyStakes",
+      },
+    ],
     extensions: {},
     step: Number,
     stakedToday: Number,
