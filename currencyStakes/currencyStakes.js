@@ -29,7 +29,11 @@ const currencyStakesSchema = new mongoose.Schema(
       required: true,
       min: 0,
     },
-    expires: {
+    stake_time: {
+      type: Number,
+      default: Date.parse(new Date()),
+    },
+    unstake_time: {
       type: Date,
     },
     A1_price: {
