@@ -34,7 +34,7 @@ const currencyStakesSchema = new mongoose.Schema(
       default: Date.parse(new Date()),
     },
     unstake_time: {
-      type: Date,
+      type: Number,
     },
     A1_price: {
       type: Number,
