@@ -13,7 +13,7 @@ const transactions = new mongoose.Schema(
     tx_fee: Number,
     tx_fee_currency: String,
     tx_currency: String,
-    tx_options: {},
+    tx_options: Object,
     exchange_id: String,
     exchange_create_object: {},
     exchange_get_object: {},
