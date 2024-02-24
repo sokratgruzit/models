@@ -2,19 +2,19 @@ const mongoose = require("mongoose");
 
 const ratesSchema = new mongoose.Schema(
   {
-    atr: { type: Object, default: {} },
-    bnb: { type: Object, default: {} },
-    btc: { type: Object, default: {} },
-    eth: { type: Object, default: {} },
-    usdt: { type: Object, default: {} },
-    gold: { type: Object, default: {} },
-    platinum: { type: Object, default: {} },
-    stakingAPY: { type: Object, default: {} },
-    onChainStakingApy: { type: Object, default: {} },
+    atr: {type: Object, default: {}},
+    bnb: {type: Object, default: {}},
+    btc: {type: Object, default: {}},
+    eth: {type: Object, default: {}},
+    usdt: {type: Object, default: {}},
+    gold: {type: Object, default: {}},
+    trx: {type: Object, default: {}},
+    stakingAPY: {type: Object, default: {}},
+    onChainStakingApy: {type: Object, default: {}},
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 const Rates = mongoose.models.rates || mongoose.model("rates", ratesSchema);
@@ -25,13 +25,13 @@ const createInitialRates = async () => {
 
     if (!existingRates) {
       const initialRates = new Rates({
-        atr: { usd: 2 },
-        bnb: { usd: 0 },
-        btc: { usd: 0 },
-        eth: { usd: 0 },
-        usdt: { usd: 0 },
-        gold: { usd: 0 },
-        platinum: { usd: 0 },
+        atr: {usd: 2},
+        bnb: {usd: 0},
+        btc: {usd: 0},
+        eth: {usd: 0},
+        usdt: {usd: 0},
+        gold: {usd: 0},
+        trx: {usd: 0},
         stakingAPY: {
           bnb: {
             30: 1,
@@ -46,28 +46,28 @@ const createInitialRates = async () => {
             360: 1,
           },
           eth: {
-          30: 1,
-          90: 1,
-          180: 1,
-          360: 1,
+            30: 1,
+            90: 1,
+            180: 1,
+            360: 1,
           },
           usdt: {
-          30: 1,
-          90: 1,
-          180: 1,
-          360: 1,
+            30: 1,
+            90: 1,
+            180: 1,
+            360: 1,
           },
           gold: {
-          30: 1,
-          90: 1,
-          180: 1,
-          360: 1,
+            30: 1,
+            90: 1,
+            180: 1,
+            360: 1,
           },
-          platinum: {
-          30: 1,
-          90: 1,
-          180: 1,
-          360: 1,
+          trx: {
+            30: 1,
+            90: 1,
+            180: 1,
+            360: 1,
           },
         },
         onChainStakingApy: {
