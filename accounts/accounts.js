@@ -5,6 +5,11 @@ const bcrypt = require("bcrypt");
 
 const accounts = new mongoose.Schema(
   {
+    userId: {
+      type: String,
+      unique: true,
+      default: "#1"
+    },
     address: {
       type: String,
       required: true,
@@ -54,6 +59,15 @@ const accounts = new mongoose.Schema(
 
 accounts.pre("save", async function (next) {
   if (this.account_category === "main") {
+    if (!this.userId) {
+      // Find the last document and get its userId
+      const lastDocument = await this.constructor.findOne({}, {}, { sort: { userId: -1 } });
+      const lastUserId = lastDocument ? parseInt(lastDocument.userId.slice(1)) : 0;
+      
+      // Increment the last userId and set it for the current document
+      this.userId = `#${lastUserId + 1}`;
+    }
+
     this.extensions = {
       trade: "false",
       tradeAdmin: "true",
@@ -69,8 +83,27 @@ accounts.pre("save", async function (next) {
       connectAdmin: "true",
     };
   }
+
+  next();
 });
 
+// Function to update main accounts with userId
+accounts.statics.updateMainAccounts = async function() {
+  try {
+    const mainAccountsWithoutUserId = await this.find({ account_category: "main", userId: { $exists: false } });
+    for (const account of mainAccountsWithoutUserId) {
+      const lastDocument = await this.findOne({ account_category: "main" }, {}, { sort: { userId: -1 } });
+      const lastUserId = lastDocument ? parseInt(lastDocument.userId.slice(1)) : 0;
+      account.userId = `#${lastUserId + 1}`;
+      await account.save();
+    }
+    console.log("Main accounts updated successfully.");
+  } catch (error) {
+    console.error("Error updating main accounts:", error);
+  }
+};
+
 accounts.plugin(aggregatePaginate);
+
 module.exports =
   mongoose.models.accounts || mongoose.model("accounts", accounts);
