@@ -90,13 +90,24 @@ accounts.pre("save", async function (next) {
 // Function to update main accounts with userId
 accounts.statics.updateMainAccounts = async function() {
   try {
-    const mainAccountsWithoutUserId = await this.find({ account_category: "main", userId: { $exists: false } });
-    for (const account of mainAccountsWithoutUserId) {
-      const lastDocument = await this.findOne({ account_category: "main" }, {}, { sort: { userId: -1 } });
-      const lastUserId = lastDocument ? parseInt(lastDocument.userId.slice(1)) : 0;
-      account.userId = `#${lastUserId + 1}`;
+    // Find all main accounts and sort them by createdAt in descending order
+    const mainAccounts = await this.find({ account_category: "main" }).sort({ createdAt: 1 });
+
+    // Start userId from 1
+    let userIdCounter = 1;
+
+    // Iterate through main accounts and reassign userId based on order of creation
+    for (const account of mainAccounts) {
+      // Assign incremented userId to the account
+      account.userId = `#${userIdCounter}`;
+      
+      // Increment userIdCounter for the next account
+      userIdCounter++;
+
+      // Save the updated account
       await account.save();
     }
+
     console.log("Main accounts updated successfully.");
   } catch (error) {
     console.error("Error updating main accounts:", error);
