@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const treasuriesSchema = new mongoose.Schema(
   {
-    incoming: { type: Object, default: {} },
-    pendingWithdrawals: { type: Object, default: {} },
-    withdrawals: { type: Object, default: {} },
+    incoming: {type: Object, default: {}},
+    pendingWithdrawals: {type: Object, default: {}},
+    withdrawals: {type: Object, default: {}},
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 const Treasuries =
@@ -20,14 +20,33 @@ const createInitialTreasuries = async () => {
 
     if (!existingTreasuries) {
       const initialTreasuries = new Treasuries({
-        incoming: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
-        pendingWithdrawals: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
-        withdrawals: { ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, PLATINUM: 0 },
+        incoming: {ATR: 0, BTC: 0, BNB: 0, ETH: 0, USDT: 0, GOLD: 0, TRX: 0},
+        pendingWithdrawals: {
+          ATR: 0,
+          BTC: 0,
+          BNB: 0,
+          ETH: 0,
+          USDT: 0,
+          GOLD: 0,
+          TRX: 0,
+        },
+        withdrawals: {
+          ATR: 0,
+          BTC: 0,
+          BNB: 0,
+          ETH: 0,
+          USDT: 0,
+          GOLD: 0,
+          TRX: 0,
+        },
       });
       await initialTreasuries.save();
     }
   } catch (error) {
-    console.error("Error creating or checking initial Treasury document:", error);
+    console.error(
+      "Error creating or checking initial Treasury document:",
+      error
+    );
   }
 };
 createInitialTreasuries();

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = require("mongoose");
+const {Schema} = require("mongoose");
 const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 const bcrypt = require("bcrypt");
 
@@ -25,18 +25,18 @@ const accounts = new mongoose.Schema(
       default: false,
     },
     assets: {
-      btc: { type: Number, default: 0 },
-      eth: { type: Number, default: 0 },
-      usdt: { type: Number, default: 0 },
-      bnb: { type: Number, default: 0 },
-      gold: { type: Number, default: 0 },
-      platinum: { type: Number, default: 0 },
-      btcStaked: { type: Number, default: 0 },
-      ethStaked: { type: Number, default: 0 },
-      usdtStaked: { type: Number, default: 0 },
-      bnbStaked: { type: Number, default: 0 },
-      goldStaked: { type: Number, default: 0 },
-      platinumStaked: { type: Number, default: 0 },
+      btc: {type: Number, default: 0},
+      eth: {type: Number, default: 0},
+      usdt: {type: Number, default: 0},
+      bnb: {type: Number, default: 0},
+      gold: {type: Number, default: 0},
+      trx: {type: Number, default: 0},
+      btcStaked: {type: Number, default: 0},
+      ethStaked: {type: Number, default: 0},
+      usdtStaked: {type: Number, default: 0},
+      bnbStaked: {type: Number, default: 0},
+      goldStaked: {type: Number, default: 0},
+      trxStaked: {type: Number, default: 0},
     },
     extensions: {},
     step: Number,
