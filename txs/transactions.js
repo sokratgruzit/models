@@ -7,6 +7,7 @@ const transactions = new mongoose.Schema(
     amount: Number,
     tx_type: String,
     tx_hash: String,
+    tx_external_hash: String,
     domination: Number,
     A1_price: Number,
     tx_status: String,
