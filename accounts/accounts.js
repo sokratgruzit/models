@@ -7,8 +7,8 @@ const accounts = new mongoose.Schema(
   {
     userId: {
       type: String,
-      unique: true,
-      default: "#1"
+      unique: false,
+      default: "#0"
     },
     address: {
       type: String,
