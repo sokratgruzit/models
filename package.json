@@ -1,6 +1,6 @@
 {
   "name": "@cubitrix/models",
-  "version": "0.1.60",
+  "version": "0.1.61",
   "description": "module for managing accounts data",
   "main": "models.js",
   "author": "David Tavadze",
