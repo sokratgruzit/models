@@ -6,7 +6,9 @@ const bcrypt = require("bcrypt");
 const accounts = new mongoose.Schema(
   {
     userId: String,
-    positionID: String,
+    positionID: Number,
+    introducer: String,
+    parent: String,
     referral: {
       type: Boolean,
       default: false
