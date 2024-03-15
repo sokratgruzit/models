@@ -4,6 +4,7 @@ const transactions = new mongoose.Schema(
   {
     from: String,
     to: String,
+    account_metas: Object,
     amount: Number,
     tx_type: String,
     tx_hash: String,
