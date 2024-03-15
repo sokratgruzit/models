@@ -9,7 +9,7 @@ const accounts = new mongoose.Schema(
     positionID: Number,
     introducer: String,
     parent: String,
-    referral: {
+    referralStatus: {
       type: Boolean,
       default: false
     },
