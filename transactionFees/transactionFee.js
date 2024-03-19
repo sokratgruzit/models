@@ -6,6 +6,7 @@ const transactionFeeSchema = new mongoose.Schema (
         TransactionType: {
             type: String,
             required: true,
+            enum: ['deposit', 'transfer', 'exchange', 'withdraw', 'internal_transfer', 'payment'],
         },
           Description: {
             type: String,
@@ -48,7 +49,7 @@ const transactionFeeSchema = new mongoose.Schema (
             required: true,
         },
           IsOnChain: {
-            type: String,
+            type: Boolean,
             required: true,
         },
           Network: {
