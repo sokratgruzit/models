@@ -58,7 +58,7 @@ const transactionFeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  effective_fromDate: {
+  effective_from_date: {
     type: String,
     required: true,
   },
