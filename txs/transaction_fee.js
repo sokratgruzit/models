@@ -4,7 +4,7 @@ const transactionFeeSchema = new mongoose.Schema({
     transaction_type: {
         type: String,
         required: true,
-        enum: ['deposit', 'transfer', 'exchange', 'withdraw', 'internal_transfer', 'payment'],
+        // enum: ['deposit', 'transfer', 'exchange', 'withdraw', 'internal_transfer', 'payment'],
     },
     description: {
         type: String,
@@ -60,7 +60,6 @@ const transactionFeeSchema = new mongoose.Schema({
     },
     last_updated: {
         type: String,
-        required: true,
     }
 });
 
