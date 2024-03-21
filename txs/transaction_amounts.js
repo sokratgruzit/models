@@ -1,49 +1,57 @@
 const mongoose = require("mongoose");
 
-const transactionParametersSchema = new mongoose.Schema({
-  ParameterID: {
+const transaction_parameters_schema = new mongoose.Schema({
+  parameter_id: {
     type: String,
     required: true,
     unique: true,
   },
-  TransactionType: {
+  transaction_type: {
     type: String,
     required: true,
   },
-  UserTier: {
+  user_tier: {
     type: String,
-    default: "all",
     required: true,
+    enum:
+      ("blocked",
+      "all",
+      "restricted",
+      "stellar_standard",
+      "novice_navigator:",
+      "expert_edge",
+      "platinum_privilege",
+      "diamond_vip"),
   },
-  MinimumTransactionLimit: {
+  minimum_transaction_limit: {
     type: Number,
     required: true,
   },
-  MaximumTransactionLimit: {
+  maximum_transaction_limit: {
     type: Number,
     required: true,
   },
-  Currency: {
+  currency: {
     type: String,
     required: true,
   },
-  BaseCurrency: {
+  base_currency: {
     type: String,
     required: true,
   },
-  CurrencyConversionRate: {
+  currency_conversion_rate: {
     type: Number,
     required: true,
   },
-  EffectiveFromDate: {
+  effective_from_date: {
     type: Date,
     required: true,
   },
-  EffectiveToDate: {
+  effective_to_date: {
     type: Date,
     required: true,
   },
-  LastUpdated: {
+  last_updated: {
     type: Date,
     default: Date.now,
   },
@@ -51,4 +59,4 @@ const transactionParametersSchema = new mongoose.Schema({
 
 module.exports =
   mongoose.models.transaction_parameters ||
-  mongoose.model("transaction_parameters", transactionParametersSchema);
+  mongoose.model("transaction_parameters", transaction_parameters_schema);
