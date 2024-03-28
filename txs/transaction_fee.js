@@ -5,7 +5,14 @@ const transactionFeeSchema = new mongoose.Schema(
     transaction_type: {
       type: String,
       required: true,
-      // enum: ['deposit', 'transfer', 'exchange', 'withdraw', 'internal_transfer', 'payment'],
+      enum: [
+        "deposit",
+        "transfer",
+        "exchange",
+        "withdraw",
+        "internal_transfer",
+        "payment",
+      ],
     },
     description: {
       type: String,
@@ -14,17 +21,18 @@ const transactionFeeSchema = new mongoose.Schema(
     fee_type: {
       type: String,
       required: true,
+      enum: ["fixed", "variable", "onChain"],
     },
     base_fee: {
-      type: String,
+      type: Number,
       required: true,
     },
     fixed_fee: {
-      type: String,
+      type: Number,
       required: true,
     },
     variable_fee_rate: {
-      type: String,
+      type: Number,
       required: true,
     },
     fee_currency: {
@@ -54,6 +62,7 @@ const transactionFeeSchema = new mongoose.Schema(
     network: {
       type: String,
       required: true,
+      enum: ["BSCSmartChain", "EthereumMainnet"],
     },
     gas_limit: {
       type: String,
