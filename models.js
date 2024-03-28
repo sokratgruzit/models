@@ -19,6 +19,7 @@ const transaction_types = require("./txs/transaction_types");
 const transactions = require("./txs/transactions");
 const transaction_fee = require("./txs/transaction_fee");
 const margin_transactions = require("./txs/margin_transactions");
+const transaction_amounts = require("./txs/transaction_amounts");
 
 // options
 const options = require("./options");
@@ -54,5 +55,6 @@ module.exports = {
   treasuries,
   currencyStakes,
   verify_txs,
-  exchanges
+  exchanges,
+  transaction_amounts,
 };
