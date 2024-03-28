@@ -11,6 +11,9 @@ const currencyStakes = require("./currencyStakes/currencyStakes");
 const verify_txs = require("./txs/verify_txs");
 const exchanges = require("./exchanges/exchanges");
 
+//global settings
+const global_settings = require("./globalSettings/global_settings");
+
 // extentions models
 const extentions_config = require("./extentions/extentions_config");
 
@@ -34,6 +37,7 @@ const referral_uni_users = require("./referral/referral_uni_users");
 const referral_binary_users = require("./referral/referral_binary_users");
 
 module.exports = {
+  global_settings,
   accounts,
   account_auth,
   account_meta,
